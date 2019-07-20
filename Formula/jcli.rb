@@ -1,7 +1,7 @@
 class Jcli < Formula
   desc "Jenkins CLI which support you"
   homepage "https://jenkins-zh.cn"
-  version "0.0.14"
+  version "0.0.15"
   
   url "https://github.com/LinuxSuRen/jenkins-cli/releases/download/v#{version}/jcli-darwin-amd64.tar.gz"
   # depends_on "cmake" => :build
