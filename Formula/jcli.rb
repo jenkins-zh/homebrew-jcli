@@ -3,7 +3,7 @@ class Jcli < Formula
   homepage "https://jenkins-zh.cn"
   version "0.0.17"
   
-  url "https://github.com/LinuxSuRen/jenkins-cli/releases/download/v#{version}/jcli-darwin-amd64.tar.gz"
+  url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v#{version}/jcli-darwin-amd64.tar.gz"
   # depends_on "cmake" => :build
 
   def install
