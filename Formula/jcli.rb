@@ -1,5 +1,5 @@
 class Jcli < Formula
-  desc "Jenkins CLI which support you"
+  desc "Jenkins CLI allows you manage your Jenkins as an easy way"
   homepage "https://jenkins-zh.cn"
   version "0.0.19"
   
