@@ -7,6 +7,10 @@ class Jcli < Formula
   def install
     bin.install name
 
+    # Install bash completion
+    output = Utils.popen_read("#{bin}/jcli completion")
+    (bash_completion/"jcli").write output
+
     prefix.install_metafiles
   end
 
