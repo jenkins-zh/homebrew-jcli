@@ -14,6 +14,12 @@ class Jcli < Formula
     prefix.install_metafiles
   end
 
+  devel do
+    jcli_id=$(docker create jenkinszh/jcli:dev)
+    docker cp $jcli_id:/bin/darwin/jcli /usr/local/bin/jcli
+    docker rm -v $jcli_id
+  end
+  
   test do
     # test version CLI command
     version_output = shell_output("#{bin}/jcli -v")
