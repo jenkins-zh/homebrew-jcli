@@ -1,6 +1,7 @@
 class Jcli < Formula
   desc "Jenkins CLI allows you manage your Jenkins as an easy way"
   homepage "http://jcli.jenkins-zh.cn/"
+  version "v0.0.24"
   url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.24/jcli-darwin-amd64.tar.gz"
   sha256 "930924661f42ba7f3bb1282acf79d982c3f5abe6a2fa2554d94f750aa7096be2"
 
