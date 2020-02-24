@@ -11,6 +11,10 @@ class Jcli < Formula
     # Install bash completion
     output = Utils.popen_read("#{bin}/jcli completion")
     (bash_completion/"jcli").write output
+    
+    # Install zsh completion
+    output = Utils.popen_read("#{bin}/jcli completion --type zsh")
+    (zsh_completion/"_jcli").write output
 
     prefix.install_metafiles
   end
