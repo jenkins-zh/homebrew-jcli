@@ -18,6 +18,10 @@ class Jcli < Formula
 
     prefix.install_metafiles
   end
+  
+  devel do
+    url "https://dl.bintray.com/jenkins-zh/generic/jenkins-cli/dev/jcli-darwin-amd64.tar.gz"
+  end
 
   test do
     # test version CLI command
