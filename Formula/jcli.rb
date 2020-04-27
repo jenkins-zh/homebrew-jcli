@@ -2,24 +2,24 @@
 class Jcli < Formula
   desc "Jenkins CLI allows you manage your Jenkins as an easy way"
   homepage "https://github.com/jenkins-zh/jenkins-cli"
-  version "0.0.27"
+  version "0.0.28"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.27/jcli-darwin-amd64.tar.gz"
-    sha256 "2f81e2be981d0afc6026c789dd164d7a2abdcea6e05056d27cfdab0c3386109e"
+    url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.28/jcli-darwin-amd64.tar.gz"
+    sha256 "9f828b0b69dc9f32d78cd4ebb13cb5ebf423576e64cd957a3afdc1a6f26fb731"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.27/jcli-linux-amd64.tar.gz"
-      sha256 "0f780db467003b8c7e434811f14463773546827d7a7300d95e13a6ffa492cedd"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.28/jcli-linux-amd64.tar.gz"
+      sha256 "73af9acd1bed1def7eb19cbff570d9afb049c910fb4d13c1017b64fa04a7041c"
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.27/jcli-linux-arm64.tar.gz"
-        sha256 "6be54d7c2afe0b85443d6088a2179f10dbf40bc66d26f1e6c943f518107d8a04"
+        url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.28/jcli-linux-arm64.tar.gz"
+        sha256 "a3b59d1d070d0528fe4cec590b2dd351cd483d9d21b164357651b6de1336e34f"
       else
-        url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.27/jcli-linux-arm.tar.gz"
-        sha256 "1d581e823cdaace58069ec30bd0e4d94166261668c65df68475b1c6826588898"
+        url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.28/jcli-linux-arm.tar.gz"
+        sha256 "fdbee90df9a5f9d6f259ab3bb5fa42602634e6ec06a28b922b654da73425b609"
       end
     end
   end
