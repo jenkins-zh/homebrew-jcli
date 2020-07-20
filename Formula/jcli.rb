@@ -2,24 +2,24 @@
 class Jcli < Formula
   desc "Jenkins CLI allows you manage your Jenkins as an easy way"
   homepage "https://github.com/jenkins-zh/jenkins-cli"
-  version "0.0.29"
+  version "0.0.30"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.29/jcli-darwin-amd64.tar.gz"
-    sha256 "e5d56a0627df3531f1198335748efcbc034344529546abc423076bba7c7e481e"
+    url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.30/jcli-darwin-amd64.tar.gz"
+    sha256 "ca49b17c0223a98682605ace5e9cb0aaf048dc132357541277cac3831b7d5667"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.29/jcli-linux-amd64.tar.gz"
-      sha256 "98bffb1b91ed9961f3359c930453f4761bf3a63515f9244e6e3e40c18e6bfd5d"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.30/jcli-linux-amd64.tar.gz"
+      sha256 "f9671353e14d58b4fbe08aca23a8e427d3a1426ce2f72a8a82aef9b4d14fa574"
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.29/jcli-linux-arm64.tar.gz"
-        sha256 "98f9ea9903853790a7cc6835b761c6247e4e92cfa1c8713325233b9c84036a17"
+        url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.30/jcli-linux-arm64.tar.gz"
+        sha256 "c7ead065efe935604ed7517ed4beaa3309859c4c5d552090028c6276a38f7e24"
       else
-        url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.29/jcli-linux-arm.tar.gz"
-        sha256 "5d6d5bdfef9d45f918046d5b4b6a40844b7e28c342050c49271f22ec3a702f50"
+        url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.30/jcli-linux-arm.tar.gz"
+        sha256 "b3131452cb9b8835e6aa659a8a79669107e7d532e9a875a4aae9fd9c34095e50"
       end
     end
   end
@@ -34,6 +34,10 @@ class Jcli < Formula
     # Install zsh completion
     output = Utils.popen_read("#{bin}/jcli completion --type zsh")
     (zsh_completion/"_jcli").write output
+    
+    (Pathname.pwd/"man").mkpath
+    system "#{bin}/jcli", "doc", "--doc-type", "ManPage", "man"
+    man1.install Dir["man/*.1"]
     
     prefix.install_metafiles
   end
