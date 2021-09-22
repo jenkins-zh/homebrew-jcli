@@ -5,20 +5,29 @@
 class Jcli < Formula
   desc "Jenkins CLI allows you manage your Jenkins as an easy way"
   homepage "https://github.com/jenkins-zh/jenkins-cli"
-  version "0.0.37"
+  version "0.0.38"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.37/jcli-darwin-amd64.tar.gz"
-    sha256 "510b48a7710f2908054331669e41a176f36a11c4e653dd63f1f2b43e690a6702"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.38/jcli-darwin-amd64.tar.gz"
+      sha256 "841d32e45332b40bf8351e5bab5e0ee2c92954aa6663558607ea95658b44ad85"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.38/jcli-darwin-arm64.tar.gz"
+      sha256 "812802896d2c8c7e51a6e40b1000a51e5baf0943bcd99679a166f3d3f11f114d"
+    end
   end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.37/jcli-linux-amd64.tar.gz"
-    sha256 "3166717b6716ebd29dec212eaa75a8c8763662cca40c334519d6f9b97856f9a7"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.37/jcli-linux-arm64.tar.gz"
-    sha256 "90d8e0fc36929eb06db2fcd386f0145ee3f4605bdb8ee626a1e67865460dee96"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.38/jcli-linux-amd64.tar.gz"
+      sha256 "be49cc9bf7a9b2a9cc76ad5fef1b9a5e123b4ffe0145f9c18cf8aa5f0801c4ac"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.38/jcli-linux-arm64.tar.gz"
+      sha256 "46a479beaf3127b77f12a334b49a79b5b922b7ebb5cba5658115338399540779"
+    end
   end
 
   depends_on "vim" => :optional
