@@ -5,51 +5,104 @@
 class Jcli < Formula
   desc "Jenkins CLI allows you manage your Jenkins as an easy way"
   homepage "https://github.com/jenkins-zh/jenkins-cli"
-  version "0.0.38"
-  bottle :unneeded
+  version "0.0.39"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.38/jcli-darwin-amd64.tar.gz"
-      sha256 "841d32e45332b40bf8351e5bab5e0ee2c92954aa6663558607ea95658b44ad85"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.39/jcli-darwin-amd64.tar.gz"
+      sha256 "36cbcd2e30053143c17fbcbe0779d0ab8838890e478140485d06ca75a8495e3a"
+
+      def install
+        bin.install name
+
+        # Install bash completion
+        output = Utils.popen_read("#{bin}/jcli completion")
+        (bash_completion/"jcli").write output
+
+        # Install zsh completion
+        output = Utils.popen_read("#{bin}/jcli completion --type zsh")
+        (zsh_completion/"_jcli").write output
+
+        (Pathname.pwd/"man").mkpath
+        system "#{bin}/jcli", "doc", "--doc-type", "ManPage", "man"
+        man1.install Dir["man/*.1"]
+
+        prefix.install_metafiles
+      end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.38/jcli-darwin-arm64.tar.gz"
-      sha256 "812802896d2c8c7e51a6e40b1000a51e5baf0943bcd99679a166f3d3f11f114d"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.39/jcli-darwin-arm64.tar.gz"
+      sha256 "6584a026179afc65b2f5c56ae830c89c27cc3dc085b99564bf5c2602febaa7e7"
+
+      def install
+        bin.install name
+
+        # Install bash completion
+        output = Utils.popen_read("#{bin}/jcli completion")
+        (bash_completion/"jcli").write output
+
+        # Install zsh completion
+        output = Utils.popen_read("#{bin}/jcli completion --type zsh")
+        (zsh_completion/"_jcli").write output
+
+        (Pathname.pwd/"man").mkpath
+        system "#{bin}/jcli", "doc", "--doc-type", "ManPage", "man"
+        man1.install Dir["man/*.1"]
+
+        prefix.install_metafiles
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.38/jcli-linux-amd64.tar.gz"
-      sha256 "be49cc9bf7a9b2a9cc76ad5fef1b9a5e123b4ffe0145f9c18cf8aa5f0801c4ac"
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.38/jcli-linux-arm64.tar.gz"
-      sha256 "46a479beaf3127b77f12a334b49a79b5b922b7ebb5cba5658115338399540779"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.39/jcli-linux-arm64.tar.gz"
+      sha256 "f4e8ecbd2ff6332ca27cb06009035bc554e65d8937c422d178a3b724f36cbcfe"
+
+      def install
+        bin.install name
+
+        # Install bash completion
+        output = Utils.popen_read("#{bin}/jcli completion")
+        (bash_completion/"jcli").write output
+
+        # Install zsh completion
+        output = Utils.popen_read("#{bin}/jcli completion --type zsh")
+        (zsh_completion/"_jcli").write output
+
+        (Pathname.pwd/"man").mkpath
+        system "#{bin}/jcli", "doc", "--doc-type", "ManPage", "man"
+        man1.install Dir["man/*.1"]
+
+        prefix.install_metafiles
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.39/jcli-linux-amd64.tar.gz"
+      sha256 "74dbb3446db427c72f5bf070fe93664feb835deb50e1d0bcd5a9568271183b2f"
+
+      def install
+        bin.install name
+
+        # Install bash completion
+        output = Utils.popen_read("#{bin}/jcli completion")
+        (bash_completion/"jcli").write output
+
+        # Install zsh completion
+        output = Utils.popen_read("#{bin}/jcli completion --type zsh")
+        (zsh_completion/"_jcli").write output
+
+        (Pathname.pwd/"man").mkpath
+        system "#{bin}/jcli", "doc", "--doc-type", "ManPage", "man"
+        man1.install Dir["man/*.1"]
+
+        prefix.install_metafiles
+      end
     end
   end
 
   depends_on "vim" => :optional
   depends_on "bash-completion" => :optional
-
-  def install
-    bin.install name
-
-    # Install bash completion
-    output = Utils.popen_read("#{bin}/jcli completion")
-    (bash_completion/"jcli").write output
-
-    # Install zsh completion
-    output = Utils.popen_read("#{bin}/jcli completion --type zsh")
-    (zsh_completion/"_jcli").write output
-
-    (Pathname.pwd/"man").mkpath
-    system "#{bin}/jcli", "doc", "--doc-type", "ManPage", "man"
-    man1.install Dir["man/*.1"]
-
-    prefix.install_metafiles
-  end
 
   test do
     version_output = shell_output("#{bin}/jcli version")
