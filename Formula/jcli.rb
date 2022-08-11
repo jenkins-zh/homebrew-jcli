@@ -5,12 +5,12 @@
 class Jcli < Formula
   desc "Jenkins CLI allows you manage your Jenkins as an easy way"
   homepage "https://github.com/jenkins-zh/jenkins-cli"
-  version "0.0.39"
+  version "0.0.40"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.39/jcli-darwin-amd64.tar.gz"
-      sha256 "36cbcd2e30053143c17fbcbe0779d0ab8838890e478140485d06ca75a8495e3a"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.40/jcli-darwin-amd64.tar.gz"
+      sha256 "0ffe4d8fb643cec580812cb5f7fec394826bd06e00354ac9a2a2774bf063eeff"
 
       def install
         bin.install name
@@ -31,8 +31,8 @@ class Jcli < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.39/jcli-darwin-arm64.tar.gz"
-      sha256 "6584a026179afc65b2f5c56ae830c89c27cc3dc085b99564bf5c2602febaa7e7"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.40/jcli-darwin-arm64.tar.gz"
+      sha256 "5212d4f22812aeec3871dd31ba9805a3bbca75563b536b6c14c339669b043e6f"
 
       def install
         bin.install name
@@ -56,8 +56,8 @@ class Jcli < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.39/jcli-linux-arm64.tar.gz"
-      sha256 "f4e8ecbd2ff6332ca27cb06009035bc554e65d8937c422d178a3b724f36cbcfe"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.40/jcli-linux-arm64.tar.gz"
+      sha256 "d2dcd144fbe9bd13d64c20660ce6d967e54aa467f50d39350e317ca3f65d70b2"
 
       def install
         bin.install name
@@ -78,8 +78,8 @@ class Jcli < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.39/jcli-linux-amd64.tar.gz"
-      sha256 "74dbb3446db427c72f5bf070fe93664feb835deb50e1d0bcd5a9568271183b2f"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.40/jcli-linux-amd64.tar.gz"
+      sha256 "54b4c9136bba93b3a7d53c67fab79e58681f87354b6cc6c5952d391fc80e063c"
 
       def install
         bin.install name
