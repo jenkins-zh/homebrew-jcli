@@ -5,15 +5,15 @@
 class Jcli < Formula
   desc "Jenkins CLI allows you manage your Jenkins as an easy way"
   homepage "https://github.com/jenkins-zh/jenkins-cli"
-  version "0.0.41"
+  version "0.0.42"
 
   depends_on "vim" => :optional
   depends_on "bash-completion" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.41/jcli-darwin-amd64.tar.gz"
-      sha256 "788a4fa491dcd07e7361e7f1b498d12d2b25ff0a80998135c38f16c1ab804b27"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.42/jcli-darwin-amd64.tar.gz"
+      sha256 "011eebce989a2b46dff145b82ab20486f1be7a6a26b8e8d0fbcfb7a1e888f8f7"
 
       def install
         bin.install name
@@ -34,8 +34,8 @@ class Jcli < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.41/jcli-darwin-arm64.tar.gz"
-      sha256 "f5ad2f5316a14d2579ba5b896bb45b8ec748e7a598c061a00d5c13a94a5aab39"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.42/jcli-darwin-arm64.tar.gz"
+      sha256 "cbcb3435e74adf5723807433b4c826caa54d973557fc08d04daf6896f096d4b4"
 
       def install
         bin.install name
@@ -59,8 +59,8 @@ class Jcli < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.41/jcli-linux-amd64.tar.gz"
-      sha256 "c571e71fc388cba9fe358f37014a89ee12da222216cddd669026e9d9ce07ce4e"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.42/jcli-linux-amd64.tar.gz"
+      sha256 "ea73ba6e418712ffb2d22e97c7acda3ab78fca45e58e0ed53b65c97c7dc00a6f"
 
       def install
         bin.install name
@@ -81,8 +81,8 @@ class Jcli < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.41/jcli-linux-arm64.tar.gz"
-      sha256 "ebd88cf3840725292a0a08aedca15b7fc6ded005d4475cada3dbf646f634bc0a"
+      url "https://github.com/jenkins-zh/jenkins-cli/releases/download/v0.0.42/jcli-linux-arm64.tar.gz"
+      sha256 "738452faee80b43d209fa60065b73c21f1ffe058ff6249e39e1f3aa02f717241"
 
       def install
         bin.install name
